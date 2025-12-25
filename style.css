@@ -72,4 +72,6 @@
   cursor: pointer;
   border-radius: 8px;
 }
-
+.menu-card img {
+cursor: pointer;
+}
