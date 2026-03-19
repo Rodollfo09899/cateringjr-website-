@@ -1,1181 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catering JR | Bay Area Catering & Private Chef</title>
-  <meta name="description" content="Catering JR offers premium catering, live cooking, brunch catering, and private chef experiences across the Bay Area." />
-  <meta name="theme-color" content="#0b0b0b" />
-
-  <style>
-    :root {
-      --bg: #0b0b0b;
-      --bg-soft: #121212;
-      --card: #161616;
-      --gold: #d4af37;
-      --gold-soft: #f2d67b;
-      --text: #f5f5f5;
-      --muted: #bdbdbd;
-      --line: rgba(255,255,255,0.08);
-      --shadow: 0 12px 30px rgba(0,0,0,0.35);
-      --radius: 18px;
-      --max: 1200px;
-    }
-
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(100% - 32px, var(--max));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 78px 0;
-    }
-
-    .section-title {
-      font-size: clamp(28px, 4vw, 42px);
-      margin: 0 0 12px;
-      text-align: center;
-    }
-
-    .section-subtitle {
-      max-width: 760px;
-      margin: 0 auto 38px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    /* NAV */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(11,11,11,0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 14px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .brand-logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      object-fit: cover;
-      border: 1px solid rgba(212,175,55,0.4);
-      background: #111;
-    }
-
-    .brand-text small {
-      display: block;
-      color: var(--gold-soft);
-      font-size: 11px;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
-
-    .brand-text span {
-      display: block;
-      font-size: 18px;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 14px;
-      transition: 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      padding: 11px 16px;
-      border-radius: 999px;
-      background: var(--gold);
-      color: #111;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    /* HERO */
-    .hero {
-      position: relative;
-      min-height: 88vh;
-      display: grid;
-      align-items: center;
-      background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.72)),
-        url("logoo.png") center/cover no-repeat;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0 0;
-      height: 140px;
-      background: linear-gradient(180deg, transparent, var(--bg));
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      padding: 100px 0 120px;
-      max-width: 760px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 14px;
-      padding: 8px 14px;
-      border: 1px solid rgba(212,175,55,0.35);
-      border-radius: 999px;
-      background: rgba(0,0,0,0.35);
-      color: var(--gold-soft);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .hero h1 {
-      margin: 0 0 16px;
-      font-size: clamp(40px, 7vw, 68px);
-      line-height: 1.03;
-    }
-
-    .hero p {
-      margin: 0 0 28px;
-      color: #e3e3e3;
-      font-size: clamp(17px, 2vw, 20px);
-      max-width: 650px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 26px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: #111;
-    }
-
-    .btn-gold:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(212,175,55,0.18);
-    }
-
-    .btn-dark {
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.03);
-      color: #fff;
-    }
-
-    .btn-dark:hover {
-      border-color: rgba(212,175,55,0.5);
-      color: var(--gold-soft);
-    }
-
-    .hero-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 16px;
-      color: #ddd;
-      font-size: 14px;
-    }
-
-    .hero-points span::before {
-      content: "• ";
-      color: var(--gold);
-    }
-
-    /* STATS */
-    .stats {
-      margin-top: -44px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .stat-card {
-      background: linear-gradient(180deg, #181818, #111);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    .stat-card strong {
-      display: block;
-      font-size: 28px;
-      color: var(--gold-soft);
-      margin-bottom: 6px;
-    }
-
-    .stat-card span {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .about-text {
-      color: #ddd;
-      font-size: 16px;
-    }
-
-    .about-box {
-      background: linear-gradient(180deg, #161616, #111);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .about-list div {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      color: #e8e8e8;
-    }
-
-    .about-list div::before {
-      content: "✓";
-      color: var(--gold);
-      font-weight: 700;
-      margin-top: 1px;
-    }
-
-    /* SERVICES */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .service-card {
-      background: linear-gradient(180deg, #191919, #121212);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      transition: 0.2s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(212,175,55,0.35);
-    }
-
-    .service-card h3 {
-      margin: 0 0 10px;
-      font-size: 22px;
-    }
-
-    .service-card p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .service-card ul {
-      margin: 0;
-      padding-left: 18px;
-      color: #ddd;
-      font-size: 14px;
-    }
-
-    .service-card li + li {
-      margin-top: 6px;
-    }
-
-    /* PHOTO GALLERY */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
-      gap: 14px;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      min-height: 260px;
-      background: #111;
-    }
-
-    .gallery-item.large {
-      grid-row: span 2;
-      min-height: 540px;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.04);
-    }
-
-    .gallery-label {
-      position: absolute;
-      left: 14px;
-      bottom: 14px;
-      padding: 8px 12px;
-      background: rgba(0,0,0,0.65);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 999px;
-      font-size: 13px;
-      color: #fff;
-    }
-
-    /* EVENTS */
-    .event-types {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .pill-card {
-      background: #141414;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 16px 18px;
-      text-align: center;
-      color: #f0f0f0;
-      font-weight: 600;
-    }
-
-    /* REVIEWS */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .review-card {
-      background: linear-gradient(180deg, #181818, #111);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .stars {
-      color: var(--gold-soft);
-      font-size: 18px;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-
-    .review-card p {
-      color: #e6e6e6;
-      margin: 0 0 16px;
-    }
-
-    .review-card strong {
-      display: block;
-      color: #fff;
-      font-size: 15px;
-    }
-
-    .review-card span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* SOCIAL */
-    .social-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .social-card,
-    .contact-card {
-      background: linear-gradient(180deg, #171717, #111);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .social-links {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 58px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.09);
-      background: #121212;
-      font-weight: 700;
-      color: #fff;
-      transition: 0.2s ease;
-    }
-
-    .social-link:hover {
-      border-color: rgba(212,175,55,0.35);
-      color: var(--gold-soft);
-      transform: translateY(-2px);
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .contact-list a,
-    .contact-list div {
-      display: block;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: #121212;
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #f4f4f4;
-    }
-
-    .contact-list small {
-      display: block;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    /* FORM */
-    .quote-wrap {
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .quote-info,
-    .quote-form {
-      background: linear-gradient(180deg, #171717, #111);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .quote-info p {
-      color: var(--muted);
-    }
-
-    .quote-info ul {
-      padding-left: 18px;
-      color: #e6e6e6;
-    }
-
-    .quote-form form {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .full {
-      grid-column: 1 / -1;
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .field label {
-      font-size: 14px;
-      color: #e9e9e9;
-    }
-
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      min-height: 50px;
-      padding: 14px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: #101010;
-      color: #fff;
-      outline: none;
-      font-size: 15px;
-    }
-
-    .field textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: rgba(212,175,55,0.45);
-      box-shadow: 0 0 0 3px rgba(212,175,55,0.08);
-    }
-
-    .submit-btn {
-      border: none;
-      cursor: pointer;
-      min-height: 52px;
-      border-radius: 999px;
-      font-weight: 700;
-      background: var(--gold);
-      color: #111;
-      font-size: 15px;
-    }
-
-    .submit-note {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 10px;
-    }
-
-    /* FOOTER */
-    .footer {
-      border-top: 1px solid var(--line);
-      background: #0a0a0a;
-      padding: 24px 0 34px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .footer p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: #ddd;
-      font-size: 14px;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold-soft);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1080px) {
-      .stats-grid,
-      .services-grid,
-      .event-types,
-      .reviews-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .about-grid,
-      .social-grid,
-      .quote-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .gallery-item.large {
-        grid-row: span 1;
-        min-height: 320px;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        width: 100%;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-inner {
-        padding: 72px 0 96px;
-      }
-
-      .stats-grid,
-      .services-grid,
-      .event-types,
-      .reviews-grid,
-      .gallery-grid,
-      .social-links,
-      .quote-form form {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 64px 0;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .gallery-item,
-      .gallery-item.large {
-        min-height: 240px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catering JR | Bay Area Catering & Private Chef</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0b0b;
+  color: #fff;
+}
+
+section { padding: 60px 20px; }
+h1,h2,h3 { margin: 0; }
+
+.hero {
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.8)), url('hero.jpg');
+  background-size: cover;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 { font-size: 42px; margin-bottom: 10px; }
+.hero p { margin-bottom: 20px; }
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-gold { background: gold; color: black; }
+.btn-dark { border: 1px solid white; color: white; }
+
+.services-grid, .gallery-grid, .reviews-grid, .social-links {
+  display: grid;
+  gap: 20px;
+}
+
+.services-grid { grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); }
+
+.card {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.gallery-grid { grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); }
+.gallery img { width: 100%; border-radius: 10px; }
+
+.reviews-grid { grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); }
+
+.social-links { grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); }
+.social-link {
+  padding: 15px;
+  background: #111;
+  text-align: center;
+  border-radius: 10px;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea, select, button {
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  background: gold;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <a href="#top" class="brand">
-        <img src="logoo.png" alt="Catering JR Logo" class="brand-logo" />
-        <div class="brand-text">
-          <small>Serving the Bay Area</small>
-          <span>Catering JR</span>
-        </div>
-      </a>
+<!-- HERO -->
+<section class="hero">
+<h1>Elevated Catering Experience</h1>
+<p>Private Chef • Live Cooking • Premium Events</p>
+<a href="#quote" class="btn btn-gold">Get a Quote</a>
+<a href="#gallery" class="btn btn-dark">View Photos</a>
+</section>
 
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#gallery">Photos</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#social">Social</a>
-        <a href="#quote" class="nav-cta">Get a Quote</a>
-      </nav>
-    </div>
-  </header>
+<!-- SERVICES -->
+<section id="services">
+<h2>Our Services</h2>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="container hero-inner">
-      <span class="eyebrow">Premium Catering • Private Chef • Events</span>
-      <h1>Elevated Catering Experiences for the Bay Area</h1>
-      <p>
-        Custom menus, live cooking, brunch catering, and private chef service for birthdays,
-        weddings, baby showers, corporate events, and unforgettable celebrations.
-      </p>
+<div class="services-grid">
+<div class="card">
+<h3>Private Chef</h3>
+<p>Custom plated meals for private events.</p>
+</div>
 
-      <div class="hero-actions">
-        <a href="#quote" class="btn btn-gold">Request a Quote</a>
-        <a href="#gallery" class="btn btn-dark">View Real Event Photos</a>
-      </div>
+<div class="card">
+<h3>Live Catering</h3>
+<p>On-site cooking for a premium experience.</p>
+</div>
 
-      <div class="hero-points">
-        <span>Custom Menus</span>
-        <span>Live Cooking Available</span>
-        <span>Professional Presentation</span>
-        <span>Serving San Bruno & Bay Area</span>
-      </div>
-    </div>
-  </section>
+<div class="card">
+<h3>Brunch Catering</h3>
+<p>Perfect for mornings and celebrations.</p>
+</div>
 
-  <!-- STATS -->
-  <section class="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card">
-          <strong>7+ Years</strong>
-          <span>Cooking experience and service</span>
-        </div>
-        <div class="stat-card">
-          <strong>Bay Area</strong>
-          <span>Private events and corporate catering</span>
-        </div>
-        <div class="stat-card">
-          <strong>Custom</strong>
-          <span>Menus tailored to your event</span>
-        </div>
-        <div class="stat-card">
-          <strong>Live</strong>
-          <span>Chef stations and on-site cooking</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="card">
+<h3>Drop-Off</h3>
+<p>Simple and efficient catering trays.</p>
+</div>
+</div>
+</section>
 
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="container about-grid">
-      <div>
-        <h2 style="font-size: clamp(30px, 4vw, 44px); margin: 0 0 14px;">About Catering JR</h2>
-        <p class="about-text">
-          Catering JR delivers premium catering and private chef experiences across the Bay Area.
-          We focus on customized menus, clean presentation, and reliable service that makes your
-          event feel polished from start to finish.
-        </p>
-        <p class="about-text">
-          From intimate brunches and family celebrations to upscale dinners and corporate gatherings,
-          the goal is simple: serve memorable food that people actually talk about after the event.
-        </p>
-      </div>
+<!-- GALLERY -->
+<section id="gallery">
+<h2>Real Event Photos</h2>
 
-      <div class="about-box">
-        <h3 style="margin: 0 0 8px;">Why clients book us</h3>
-        <div class="about-list">
-          <div>Customized menus based on your event, guests, and budget</div>
-          <div>Professional setup with clean presentation and strong flavor</div>
-          <div>Options for brunch, buffets, plated service, and live stations</div>
-          <div>Direct communication and dependable service from inquiry to event day</div>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="gallery-grid">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+</div>
+</section>
 
-  <!-- SERVICES -->
-  <section class="section" id="services">
-    <div class="container">
-      <h2 class="section-title">Services Designed to Sell Better</h2>
-      <p class="section-subtitle">
-        Clear offers, stronger wording, and a more premium presentation. This sells better than just listing random dishes.
-      </p>
+<!-- REVIEWS -->
+<section>
+<h2>Client Reviews</h2>
 
-      <div class="services-grid">
-        <article class="service-card">
-          <h3>Private Chef Experience</h3>
-          <p>Ideal for intimate dinners, birthday celebrations, and premium in-home experiences.</p>
-          <ul>
-            <li>Custom plated menus</li>
-            <li>Elegant service style</li>
-            <li>Perfect for smaller private events</li>
-          </ul>
-        </article>
+<div class="reviews-grid">
+<div class="card">
+★★★★★<br>
+Amazing food and presentation.
+</div>
 
-        <article class="service-card">
-          <h3>Live Catering Experience</h3>
-          <p>On-site cooking that creates energy, freshness, and a more interactive guest experience.</p>
-          <ul>
-            <li>Taco stations</li>
-            <li>Brunch and omelet stations</li>
-            <li>Chef action in front of guests</li>
-          </ul>
-        </article>
+<div class="card">
+★★★★★<br>
+Super professional service.
+</div>
 
-        <article class="service-card">
-          <h3>Brunch Catering</h3>
-          <p>Fresh breakfast and brunch service for baby showers, birthdays, corporate mornings, and more.</p>
-          <ul>
-            <li>Pancakes, waffles, eggs</li>
-            <li>Sweet and savory options</li>
-            <li>Morning-friendly setup</li>
-          </ul>
-        </article>
+<div class="card">
+★★★★★<br>
+Everyone loved the food.
+</div>
+</div>
+</section>
 
-        <article class="service-card">
-          <h3>Drop-Off Catering</h3>
-          <p>Simple, clean, and convenient catering for offices, parties, and family gatherings.</p>
-          <ul>
-            <li>Buffet trays and family style</li>
-            <li>Great for volume</li>
-            <li>Quick delivery style setup</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
+<!-- SOCIAL -->
+<section>
+<h2>Follow Us</h2>
 
-  <!-- EVENT TYPES -->
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <h2 class="section-title">Perfect for Every Occasion</h2>
-      <p class="section-subtitle">
-        Positioning the business around events helps people see themselves booking you.
-      </p>
+<div class="social-links">
+<a class="social-link" href="https://www.instagram.com/catering_jr04?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+<a class="social-link" href="https://www.yelp.com/biz/catering-jr-san-bruno?utm_source=ishare" target="_blank">Yelp</a>
+<a class="social-link" href="https://www.tiktok.com/@catering_jr1?_r=1&_t=ZT-94oK4U94W7i" target="_blank">TikTok</a>
+<a class="social-link" href="mailto:cateringjr04@gmail.com">Email</a>
+</div>
+</section>
 
-      <div class="event-types">
-        <div class="pill-card">Birthdays</div>
-        <div class="pill-card">Baby Showers</div>
-        <div class="pill-card">Corporate Events</div>
-        <div class="pill-card">Weddings & Engagements</div>
-        <div class="pill-card">Private Dinners</div>
-        <div class="pill-card">Holiday Parties</div>
-        <div class="pill-card">Graduations</div>
-        <div class="pill-card">VIP & Special Events</div>
-      </div>
-    </div>
-  </section>
+<!-- FORM -->
+<section id="quote">
+<h2>Request a Quote</h2>
 
-  <!-- REAL PHOTOS -->
-  <section class="section" id="gallery">
-    <div class="container">
-      <h2 class="section-title">Real Event Photos</h2>
-      <p class="section-subtitle">
-        Use your actual best pictures here. This section matters more than long paragraphs.
-      </p>
-
-      <div class="gallery-grid">
-        <div class="gallery-item large">
-          <img src="seafood.png" alt="Catering JR event setup" />
-          <span class="gallery-label">Featured Event Setup</span>
-        </div>
-
-        <div class="gallery-item">
-          <img src="breakfast-buffet.png" alt="Plated food by Catering JR" />
-          <span class="gallery-label">Plated Service</span>
-        </div>
-
-        <div class="gallery-item">
-          <img src="american-menu.png" alt="Brunch catering by Catering JR" />
-          <span class="gallery-label">Brunch Catering</span>
-        </div>
-
-        <div class="gallery-item">
-          <img src="catering_thanksgivin.JPG" alt="Live cooking station" />
-          <span class="gallery-label">Live Cooking</span>
-        </div>
-
-        <div class="gallery-item">
-          <img src="Indian.png" alt="Private chef meal" />
-          <span class="gallery-label">Private Chef</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section class="section" id="reviews">
-    <div class="container">
-      <h2 class="section-title">What Clients Say</h2>
-      <p class="section-subtitle">
-        Keep these real. If you have screenshots or better wording from actual clients, replace these.
-      </p>
-
-      <div class="reviews-grid">
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>
-            Everything was on point. The food was fresh, flavorful, and beautifully presented.
-            Our guests kept asking who did the catering.
-          </p>
-          <strong>Private Client</strong>
-          <span>San Bruno, CA</span>
-        </article>
-
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>
-            Professional, responsive, and easy to work with. The setup looked clean, and the food
-            exceeded expectations for our event.
-          </p>
-          <strong>Corporate Event</strong>
-          <span>South San Francisco, CA</span>
-        </article>
-
-        <article class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>
-            The brunch service was a hit. Great flavor, beautiful presentation, and smooth communication
-            from beginning to end.
-          </p>
-          <strong>Family Celebration</strong>
-          <span>San Mateo County</span>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOCIAL / CONTACT -->
-  <section class="section" id="social">
-    <div class="container social-grid">
-      <div class="social-card">
-        <h2 style="margin: 0 0 10px; font-size: 34px;">Follow & Contact Catering JR</h2>
-        <p style="margin: 0; color: var(--muted);">
-          Put your strongest social channels front and center. People check Instagram and Yelp before booking.
-        </p>
-
-        <div class="social-links">
-          <a class="social-link" href="https://www.instagram.com/catering_jr1/" target="_blank">Instagram</a>
-          <a class="social-link" href="https://https://www.yelp.com/biz/catering-jr-san-bruno?utm_source=ishare" target="_blank">Yelp</a>
-          <a class="social-link" href="https://www.tiktok.com/@catering_jr1?_r=1&_t=ZT-94oK4U94W7i" target="_blank">TikTok</a>
 <form action="https://formsubmit.co/cateringjr04@gmail.com" method="POST">
-  <input type="hidden" name="_subject" value="New Catering JR Quote Request">
-  <input type="hidden" name="_captcha" value="true">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://www.cateringjr.com/thank-you.html">
-  <input type="hidden" name="_autoresponse" value="Thank you for contacting Catering JR. We received your quote request and will get back to you as soon as possible.">
+<input type="hidden" name="_subject" value="New Catering JR Lead">
 
-  <div class="field">
-    <label for="name">Full Name</label>
-    <input id="name" name="Name" type="text" required />
-  </div>
+<input type="text" name="Name" placeholder="Name" required>
+<input type="email" name="Email" placeholder="Email" required>
+<input type="tel" name="Phone" placeholder="Phone">
+<input type="date" name="Date">
+<input type="text" name="Location" placeholder="Event Location">
+<input type="number" name="Guests" placeholder="Guests">
 
-  <div class="field">
-    <label for="email">Email</label>
-    <input id="email" name="Email" type="email" required />
-  </div>
+<select name="Service">
+<option>Service Needed</option>
+<option>Private Chef</option>
+<option>Live Catering</option>
+<option>Brunch</option>
+<option>Drop-Off</option>
+</select>
 
-  <div class="field">
-    <label for="phone">Phone</label>
-    <input id="phone" name="Phone" type="tel" />
-  </div>
+<textarea name="Message" placeholder="Event details"></textarea>
 
-  <div class="field">
-    <label for="date">Event Date</label>
-    <input id="date" name="Event Date" type="date" />
-  </div>
-
-  <div class="field">
-    <label for="city">Event City / Location</label>
-    <input id="city" name="Event City / Location" type="text" />
-  </div>
-
-  <div class="field">
-    <label for="guests">Approx. Guests</label>
-    <input id="guests" name="Approx. Guests" type="number" min="1" />
-  </div>
-
-  <div class="field full">
-    <label for="service">Service Interested In</label>
-    <select id="service" name="Service Interested In">
-      <option value="">Select one</option>
-      <option>Private Chef Experience</option>
-      <option>Live Catering Experience</option>
-      <option>Brunch Catering</option>
-      <option>Drop-Off Catering</option>
-      <option>Custom Menu</option>
-    </select>
-  </div>
-
-  <div class="field full">
-    <label for="message">Tell Us About Your Event</label>
-    <textarea id="message" name="Event Details" placeholder="Type of event, menu idea, budget, timing, dietary needs, or anything important."></textarea>
-  </div>
-
-  <div class="full">
-    <button class="submit-btn" type="submit">Send Quote Request</button>
-    <div class="submit-note">
-      We’ll review your event details and get back to you as soon as possible.
-    </div>
-  </div>
+<button type="submit">Send Request</button>
 </form>
-        </div>
-      </div>
+</section>
 
-      <div class="contact-card">
-        <h3 style="margin: 0 0 10px; font-size: 24px;">Direct Contact</h3>
-        <p style="margin: 0; color: var(--muted);">
-          This replaces the weak “inbox” feeling with a cleaner direct-contact section.
-        </p>
-
-        <div class="contact-list">
-          <a href="tel:+14153496404">
-            (415) 349-6404
-            <small>Call or text for quotes</small>
-          </a>
-
-          <a href="https://wa.me/14153496404" target="_blank">
-            WhatsApp
-            <small>Fastest way to reach us</small>
-          </a>
-
-          <a href="mailto:cateringjr04@gmail.com">
-            cateringjr04@gmail.com
-            <small>Email for event details and menus</small>
-          </a>
-
-          <div>
-            San Bruno, CA
-            <small>Serving the Bay Area</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUOTE FORM -->
-  <section class="section" id="quote">
-    <div class="container quote-wrap">
-      <div class="quote-info">
-        <h2 style="margin: 0 0 12px; font-size: 34px;">Request a Quote</h2>
-        <p>
-          This form is meant to qualify the client fast so you stop wasting time going back and forth.
-        </p>
-        <ul>
-          <li>Ask for event type, date, city, and guest count</li>
-          <li>Get a better idea of service needed right away</li>
-          <li>Makes the business look more serious and organized</li>
-        </ul>
-      </div>
-
-      <div class="quote-form">
-        <form action="mailto:cateringjr04@gmail.com" method="post" enctype="text/plain">
-          <div class="field">
-            <label for="name">Full Name</label>
-            <input id="name" name="Name" type="text" required />
-          </div>
-
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="Email" type="email" required />
-          </div>
-
-          <div class="field">
-            <label for="phone">Phone</label>
-            <input id="phone" name="Phone" type="tel" />
-          </div>
-
-          <div class="field">
-            <label for="date">Event Date</label>
-            <input id="date" name="Event Date" type="date" />
-          </div>
-
-          <div class="field">
-            <label for="city">Event City / Location</label>
-            <input id="city" name="Event City / Location" type="text" />
-          </div>
-
-          <div class="field">
-            <label for="guests">Approx. Guests</label>
-            <input id="guests" name="Approx. Guests" type="number" min="1" />
-          </div>
-
-          <div class="field full">
-            <label for="service">Service Interested In</label>
-            <select id="service" name="Service Interested In">
-              <option value="">Select one</option>
-              <option>Private Chef Experience</option>
-              <option>Live Catering Experience</option>
-              <option>Brunch Catering</option>
-              <option>Drop-Off Catering</option>
-              <option>Custom Menu</option>
-            </select>
-          </div>
-
-          <div class="field full">
-            <label for="message">Tell Us About Your Event</label>
-            <textarea id="message" name="Event Details" placeholder="Type of event, menu idea, budget, timing, dietary needs, or anything important."></textarea>
-          </div>
-
-          <div class="full">
-            <button class="submit-btn" type="submit">Send Quote Request</button>
-            <div class="submit-note">
-              Note: on some devices, this opens the email app. Later you can connect this to a real form inbox service.
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>© 2026 Catering JR · Serving the Bay Area</p>
-
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#gallery">Photos</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#quote">Quote</a>
-      </div>
-    </div>
-  </footer>
+<!-- FOOTER -->
+<footer>
+Catering JR • Serving the Bay Area
+</footer>
 
 </body>
 </html>
