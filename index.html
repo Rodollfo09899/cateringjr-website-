@@ -1,1131 +1,207 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics (reemplaza con tu ID si quieres) -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENQGPXB03P"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ENQGPXB03P');
-  </script>
-  -->
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Catering JR – Bay Area Catering | San Bruno, CA</title>
-
-  <!-- SEO básico -->
-  <meta name="description" content="Catering JR – Catering en el Área de la Bahía: Picadas, costillas al barril, tacos, arepas, empanadas y más para bodas, eventos corporativos y privados. English & Español." />
-  <meta name="keywords" content="Catering JR, catering San Bruno, catering Bay Area, picadas, costillas al barril, tacos, arepas, empanadas, wedding catering, corporate events" />
-  <meta name="author" content="Catering JR" />
-
-  <!-- Open Graph (para compartir en redes) -->
-  <meta property="og:title" content="Catering JR – Bay Area Catering" />
-  <meta property="og:description" content="Catering hecho con sabor latino y fusión para bodas, corporativos, quinceañeras y eventos privados en el Área de la Bahía." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.cateringjr.com/" />
-  <meta property="og:image" content="https://www.cateringjr.com/images/american-menu.png" />
-
-  <!-- JSON-LD para Google (negocio local) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FoodEstablishment",
-    "name": "Catering JR",
-    "image": "https://www.cateringjr.com/images/america-menu.png",
-    "url": "https://www.cateringjr.com/",
-    "telephone": "+1-415-349-6404",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "2271 Fleetwood Dr",
-      "addressLocality": "San Bruno",
-      "addressRegion": "CA",
-      "postalCode": "94066",
-      "addressCountry": "US"
-    },
-    "servesCuisine": ["Mexican", "Colombian", "Latin", "American", "Italian"],
-    "areaServed": {
-      "@type": "GeoCircle",
-      "description": "San Bruno, San Mateo County y Área de la Bahía"
-    }
-  }
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catering JR | Luxury Catering & Private Chef Bay Area</title>
 
   <style>
-    :root {
-      --bg: #050505;
-      --card: #111111;
-      --accent: #d4af37; /* dorado */
-      --accent-soft: rgba(212, 175, 55, 0.15);
-      --text: #f5f5f5;
-      --muted: #aaaaaa;
-      --danger: #e53935;
-      --radius: 14px;
-      --shadow: 0 18px 40px rgba(0,0,0,0.6);
-      --max-width: 1100px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #222 0, #050505 55%);
-      color: var(--text);
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
     }
 
-    img { max-width: 100%; display: block; }
-
-    a { color: inherit; text-decoration: none; }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(5,5,5,0.95), rgba(5,5,5,0.75));
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .nav {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.6rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    .brand-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      box-shadow: 0 0 20px rgba(212,175,55,0.4);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      font-size: 0.9rem;
-    }
-
-    .nav-links a {
-      opacity: 0.85;
-      padding-bottom: 2px;
-      border-bottom: 1px solid transparent;
-    }
-
-    .nav-links a:hover {
-      border-color: var(--accent);
-      opacity: 1;
-    }
-
-    .lang-toggle {
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      padding: 2px;
-      display: inline-flex;
-      gap: 2px;
-      background: rgba(0,0,0,0.5);
-    }
-
-    .lang-toggle button {
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.78rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      cursor: pointer;
-    }
-
-    .lang-toggle button.active {
-      background: var(--accent);
-      color: #000;
-      font-weight: 600;
-    }
-
-    .btn-primary, .btn-ghost {
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      padding: 0.55rem 1.2rem;
-      font-size: 0.9rem;
-      cursor: pointer;
-      background: var(--accent);
-      color: #000;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      box-shadow: 0 14px 30px rgba(212,175,55,0.35);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, color 0.12s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(212,175,55,0.5);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--accent);
-      box-shadow: none;
-      border-style: dashed;
-    }
-
-    .btn-ghost:hover {
-      background: var(--accent-soft);
-    }
-
-    main {
-      flex: 1;
+    h1, h2, h3 {
+      margin: 0;
     }
 
     section {
-      padding: 3rem 1.5rem;
-    }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
+      padding: 60px 20px;
     }
 
     /* HERO */
-
     .hero {
-      padding-top: 2.4rem;
-      padding-bottom: 3.5rem;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+                  url('hero.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 120px 20px;
     }
 
-    .hero-grid {
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .btn-primary {
+      background: gold;
+      color: black;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .btn-secondary {
+      border: 1px solid white;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    /* SERVICES */
+    .services {
+      text-align: center;
+    }
+
+    .service-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 2.3rem;
-      align-items: center;
-    }
-
-    .eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.2rem, 3.1vw, 3rem);
-      line-height: 1.1;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-subtitle {
-      font-size: 0.98rem;
-      color: var(--muted);
-      max-width: 480px;
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .tag {
-      border-radius: 999px;
-      padding: 0.25rem 0.7rem;
-      border: 1px solid rgba(255,255,255,0.18);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--muted);
-      background: rgba(0,0,0,0.6);
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      align-items: center;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-right {
-      position: relative;
-    }
-
-    .hero-card {
-      background: radial-gradient(circle at top, #333 0, #111 50%, #040404 100%);
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 0.8rem;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .hero-image {
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-    }
-
-    .hero-badge {
-      position: absolute;
-      top: 12px;
-      right: 10px;
-      background: rgba(0,0,0,0.75);
-      border-radius: 999px;
-      padding: 0.35rem 0.75rem;
-      border: 1px solid rgba(255,255,255,0.25);
-      font-size: 0.7rem;
-      display: inline-flex;
-      gap: 0.3rem;
-      align-items: center;
-    }
-
-    .hero-badge span {
-      color: var(--accent);
-      font-size: 0.85rem;
-    }
-
-    /* SECTIONS GENERALES */
-
-    .section-title {
-      font-size: 1.5rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 1.4rem;
-      max-width: 520px;
-    }
-
-    /* MENÚS */
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.4rem;
-    }
-
-    .menu-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00));
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 0.85rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-    }
-
-    .menu-thumb {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      height: 140px;
-    }
-
-    .menu-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .menu-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-    }
-
-    .menu-name {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0.1rem 0;
-    }
-
-    .menu-items {
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .menu-footer {
-      margin-top: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    /* REVIEWS */
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
-    }
-
-    .review-card {
-      background: rgba(0,0,0,0.7);
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 1rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      font-size: 0.88rem;
-    }
-
-    .review-stars {
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-
-    .review-author {
-      margin-top: 0.7rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    /* GALLERY */
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.6rem;
-    }
-
-    .gallery-item {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      height: 120px;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.25s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.07);
-    }
-
-    /* FORMULARIOS */
-
-    .two-column {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
     }
 
     .card {
-      background: rgba(0,0,0,0.75);
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 1.2rem;
-      box-shadow: var(--shadow);
+      background: #111;
+      padding: 25px;
+      border-radius: 10px;
+      transition: 0.3s;
     }
 
-    form {
+    .card:hover {
+      transform: translateY(-5px);
+      border: 1px solid gold;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
       display: grid;
-      gap: 0.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 20px;
     }
 
-    label {
-      font-size: 0.78rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    input, textarea, select {
+    .gallery img {
       width: 100%;
       border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.16);
-      padding: 0.55rem 0.65rem;
-      background: rgba(10,10,10,0.9);
-      color: var(--text);
-      font-size: 0.9rem;
-      font-family: inherit;
     }
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
+    /* FORM */
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
-    .contact-info {
-      font-size: 0.9rem;
-      color: var(--muted);
+    input, textarea, button {
+      padding: 12px;
+      border-radius: 5px;
+      border: none;
     }
 
-    .contact-info strong {
-      color: var(--text);
-    }
-
-    .contact-info p {
-      margin-bottom: 0.6rem;
-    }
-
-    .contact-info a {
-      color: var(--accent);
+    button {
+      background: gold;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     /* FOOTER */
-
     footer {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding: 1.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      align-items: center;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      text-decoration: underline;
-      text-decoration-color: rgba(255,255,255,0.25);
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .menu-grid,
-      .reviews-grid,
-      .two-column {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .menu-grid,
-      .reviews-grid {
-        gap: 1rem;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .hero-card {
-        margin-top: 0.6rem;
-      }
+      text-align: center;
+      padding: 20px;
+      background: #111;
     }
   </style>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-
 </head>
+
 <body>
-<div class="page" data-lang="es">
-  <header>
-    <nav class="nav">
-      <div class="brand">
-        <div class="brand-logo">JR</div>
-        <div>
-          <div>Catering JR</div>
-          <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.14em;">
-            Serving the Bay Area
-          </div>
-        </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Luxury Catering & Private Chef</h1>
+    <p>Serving the Bay Area with custom menus and live cooking experiences</p>
+
+    <a href="#quote" class="btn-primary">Get a Quote</a>
+    <a href="#services" class="btn-secondary">View Services</a>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+
+    <div class="service-grid">
+
+      <div class="card">
+        <h3>Private Chef Experience</h3>
+        <p>Custom plated dinners for intimate and luxury events.</p>
       </div>
-      <div class="nav-links">
-        <a href="#hero" data-i18n="nav_home">Inicio</a>
-        <a href="#menu" data-i18n="nav_menu">Menú</a>
-        <a href="#reviews" data-i18n="nav_reviews">Reseñas</a>
-        <a href="#quote" data-i18n="nav_quote">Cotización</a>
-        <a href="#contact" data-i18n="nav_contact">Contacto</a>
-        <a href="#media" data-i18n="nav_media">Media</a>
-        <div class="lang-toggle">
-          <button type="button" data-lang-btn="es" class="active">ES</button>
-          <button type="button" data-lang-btn="en">EN</button>
-        </div>
-        <a href="#quote" class="btn-ghost" data-i18n="nav_cta">Ask for Quote</a>
+
+      <div class="card">
+        <h3>Live Catering Experience</h3>
+        <p>On-site cooking stations including tacos, brunch, and more.</p>
       </div>
-    </nav>
-  </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-  <div class="hero-content">
-    <h1>Luxury Catering & Private Chef in the Bay Area</h1>
-    <p>Custom menus, live cooking experiences, and premium catering for unforgettable events.</p>
+      <div class="card">
+        <h3>Brunch Catering</h3>
+        <p>Fresh breakfast setups perfect for morning events.</p>
+      </div>
 
-    <div class="hero-buttons">
-      <a href="#quote" class="btn-primary">Get a Quote</a>
-      <a href="#services" class="btn-secondary">View Services</a>
-    </div>
-  </div>
-</section>
-
-    <!-- MENÚS -->
-    <section id="menu">
-  <div class="container">
-    <h2 class="section-title" data-i18n="menu_title">Nuestros menús</h2>
-    <p class="section-subtitle" data-i18n="menu_subtitle">
-      Menús flexibles para buffets, eventos familiares, empresas y bodas. Todos los menús se pueden personalizar y combinar.
-    </p>
-
-    <div class="menu-grid">
-      
-      <!-- AMERICAN CUISINE -->
-      <article class="menu-card">
-        <div class="menu-thumb">
-                    <a href="images/menus/american-menu.png" target="_blank">
-                      </a>
-          <img src="images/menus/american-menu.png" alt="American Cuisine Catering JR"
-            loading="lazy">
-        </div>
-        <div class="menu-label">American Cuisine</div>
-        <div class="menu-name">American Entrées</div>
-        <div class="menu-items">Buffalo wings, sliders, mac & cheese, garlic bread, fried cheese bites, appetizers y más.</div>
-        <div class="menu-footer">
-          <span>Perfecto para eventos corporativos</span>
-          <a href="#quote" style="text-decoration:underline;">Pedir cotización</a>
-        </div>
-      </article>
-
-      <!-- BREAKFAST BUFFETS -->
-      <article class="menu-card">
-        <div class="menu-thumb">
-                              <a href="images/menus/breakfast-buffet.png" target="_blank">
-                      </a>
-          <img src="images/menus/breakfast-buffet.png" alt="Steak & Grill Catering JR"
-            loading="lazy">
-
-        <div class="menu-label">Breakfast Buffet</div>
-        <div class="menu-name">Buffet & Stations</div>
-        <div class="menu-items">Huevos, pancakes, waffles, omelet station, breakfast tacos y más.</div>
-        <div class="menu-footer">
-          <span>Ideal para brunch y eventos AM</span>
-          <a href="#quote" style="text-decoration:underline;">Pedir cotización</a>
-        </div>
-      </article>
-
-      <!-- GRILLED & STEAK -->
-      <article class="menu-card">
-        <div class="menu-thumb">
-          <a href="images/menus/grilled-and-steak.png" target="_blank">
-                      </a>
-          <img src="images/menus/grilled-and-steak.png" alt="Steak & Grill Catering JR"
-            loading="lazy">
-        </div>
-        <div class="menu-label">Steaks & Grill</div>
-        <div class="menu-name">Grilled Excellence</div>
-        <div class="menu-items">Ribeye, New York Steak, Wagyu, chicken kabobs, shawarma, lamb chops.</div>
-        <div class="menu-footer">
-          <span>Premium events & weddings</span>
-          <a href="#quote" style="text-decoration:underline;">Pedir cotización</a>
-        </div>
-      </article>
-
-      <!-- INDIAN MENU -->
-      <article class="menu-card">
-        <div class="menu-thumb">
-          <a href="images/menus/Indian.png" target="_blank">
-                      </a>
-          <img src="images/menus/Indian.png" alt="Indian Menu Catering JR"
-            loading="lazy">
-        </div>
-        <div class="menu-label">Indian Cuisine</div>
-        <div class="menu-name">Indian Menu</div>
-        <div class="menu-items">Butter chicken, biryani, naan, tikka masala, samosas, chutneys y más.</div>
-        <div class="menu-footer">
-          <span>Perfecto para celebraciones grandes</span>
-          <a href="#quote" style="text-decoration:underline;">Pedir cotización</a>
-        </div>
-      </article>
-
-      <!-- ITALIAN CUISINE -->
-      <article class="menu-card">
-        <div class="menu-thumb">
-               <a href="images/menus/Indian.png" target="_blank">
-                      </a>
-          <img src="images/menus/italian.png" alt="Italian Catering JR"
-               loading="lazy">
-        </div>
-        <div class="menu-label">Italian Cuisine</div>
-        <div class="menu-name">La Cucina Italiana</div>
-        <div class="menu-items">Pastas, risotto, pizza, caprese, milanesa, marsala, appetizers y postres.</div>
-        <div class="menu-footer">
-          <span>Ideal para cenas & eventos elegantes</span>
-          <a href="#quote" style="text-decoration:underline;">Pedir cotización</a>
-        </div>
-      </article>
-
-      <!-- PREMIUM SEAFOOD -->
-      <article class="menu-card">
-        <div class="menu-thumb">
-               <a href="images/menus/premiun-seafiood." target="_blank">
-                      </a>
-          <img src="images/menus/premiun-seafiood.png" alt="Seafood Catering JR"
-           loading="lazy" >
-        </div>
-        <div class="menu-label">Seafood Menu</div>
-        <div class="menu-name">Premium Seafood</div>
-        <div class="menu-items">Shrimp skewers, ceviche, salmon, crab cakes, mussels, mahi-mahi y más.</div>
-        <div class="menu-footer">
-          <span>Ideal para eventos premium</span>
-          <a href="#quote" style="text-decoration:underline;">Pedir cotización</a>
-        </div>
-      </article>
-
-      <!-- GOURMET SANDWICHES -->
-      <article class="menu-card">
-        <div class="menu-thumb">
-               <a href="images/menus/sandwich.ß" target="_blank">
-                      </a>
-          <img src="images/menus/sandwich.png" alt="Gourmet Sandwich Catering JR">
-        </div>
-        <div class="menu-label">Gourmet Sandwiches</div>
-        <div class="menu-name">Sandwich Menu</div>
-        <div class="menu-items">Steak sandwiches, grilled cheese, tuna bánh mì, veggie melts y más.</div>
-        <div class="menu-footer">
-          <span>Perfecto para comidas corporativas</span>
-          <a href="#quote" style="text-decoration:underline;">Pedir cotización</a>
-        </div>
-      </article>
+      <div class="card">
+        <h3>Drop-Off Catering</h3>
+        <p>Convenient trays for offices, parties, and gatherings.</p>
+      </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-    <!-- REVIEWS -->
-    <section id="reviews">
-      <div class="container">
-        <h2 class="section-title" data-i18n="reviews_title">Lo que dicen nuestros clientes</h2>
-        <p class="section-subtitle" data-i18n="reviews_subtitle">
-          Reseñas reales de eventos privados, pop-ups y catering en el Área de la Bahía.
-        </p>
+  <!-- GALLERY -->
+  <section class="gallery">
+    <h2>Event Highlights</h2>
 
-        <div class="reviews-grid">
-          <article class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p data-i18n="review_1_text">
-              Las costillas al barril fueron un éxito total en nuestra fiesta. Todo llegó caliente, bien presentado y con mucho sabor.
-            </p>
-            <div class="review-author" data-i18n="review_1_author">– Cliente privado, San Bruno</div>
-          </article>
+    <div class="gallery-grid">
+      <img src="food1.jpg">
+      <img src="food2.jpg">
+      <img src="food3.jpg">
+      <img src="food4.jpg">
+    </div>
+  </section>
 
-          <article class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p data-i18n="review_2_text">
-              Organizamos un evento corporativo y Catering JR se encargó de todo el buffet. Profesional, puntual y la comida deliciosa.
-            </p>
-            <div class="review-author" data-i18n="review_2_author">– Evento corporativo, South San Francisco</div>
-          </article>
+  <!-- QUOTE FORM -->
+  <section id="quote">
+    <h2>Request a Quote</h2>
 
-          <article class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p data-i18n="review_3_text">
-              Hicimos una quinceañera y todos hablaron de las picadas y las arepas. Muy recomendado.
-            </p>
-            <div class="review-author" data-i18n="review_3_author">– Familia, San Mateo</div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Phone">
 
-    <!-- MEDIA / GALERÍA -->
-    <section id="gallery">
-  <h2>Recent Events & Real Food</h2>
-  <div class="gallery-grid">
-    <img src="images/catering_thanksgivin.JPG" alt="Catering Event">
-    <img src="images/birri_client.HEIC" alt="Birria Plate">
-    <img src="images/birria_togo_packed.HEIC" alt="Birria To-Go">
-    <img src="images/cheeboard2.heic" alt="Cheese Board">
-  </div>
-</section>
-    <section class="video-section">
-  <h2>Behind The Scenes</h2>
+      <input type="date">
+      <input type="text" placeholder="Event Location">
+      <input type="number" placeholder="Number of Guests">
 
- <video autoplay muted loop playsinline class="video-bg">
-   <source src="images/videos/chef_ondutty.MOV" type="video/mp4">
-  </video>
-      <div class="hero-overlay"></div>
+      <textarea placeholder="Tell us about your event"></textarea>
 
-  <div class="hero-content">
+      <button type="submit">Get My Quote</button>
+    </form>
+  </section>
 
-  <video controls class="promo-video">
-    <source src="images/videos/burger_onsite.MP4" type="video/mp4">
-  </video>
-
-  <video controls class="promo-video">
-    <source src="images/videos/cheese_corn.MOV" type="video/mp4">
-  </video>
-</section>
-
-
-   <div class="gallery-grid">
-
-  <div class="gallery-item">
-      <a href="images/menus/american-menu.png" data-lightbox="gallery">
-
-    <img src="images/menus/american-menu.png" alt="American Menu">
-        <a/>
-  </div>
-
-  <div class="gallery-item">
-          <a href="images/menus/italian.png" data-lightbox="gallery">
-    <img src="images/menus/italian.png" alt="Italian Menu">
-  </div>
-
-  <div class="gallery-item">
-          <a href="images/menus/premiun-seafiood.png" data-lightbox="gallery">
-    <img src="images/menus/premiun-seafiood.png" alt="Seafood Menu">
-  </div>
-
-  <div class="gallery-item">
-          <a href="images/menus/grilled-and-steak.png" data-lightbox="gallery">
-    <img src="images/menus/grilled-and-steak.png" alt="Steak Menu">
-  </div>
-
-  <div class="gallery-item">
-          <a href="images/menus/breakfast-buffet.png" data-lightbox="gallery">
-            
-    <img src="images/menus/breakfast-buffet.png" alt="Breakfast Buffet">
-  </div>
-
-  <div class="gallery-item">
-          <a href="images/menus/Indian.png" data-lightbox="gallery">
-    <img src="images/menus/Indian.png" alt="Indian Menu">
-  </div>
-
-  <div class="gallery-item">
-          <a href="images/menus/sandwich.png" data-lightbox="gallery">
-    <img src="images/menus/sandwich.png" alt="Sandwich Menu">
-  </div>
-
-  <div class="gallery-item">
-          <a href="images/menus/seafood.png" data-lightbox="gallery">
-    <img src="images/menus/seafood.png" alt="Seafood Menu 2">
-  </div>
-
-</div>
-
-    <!-- QUOTE / ORDENAR -->
-    <section id="quote">
-      <div class="container two-column">
-        <div>
-          <h2 class="section-title" data-i18n="quote_title">Pide tu cotización</h2>
-          <p class="section-subtitle" data-i18n="quote_subtitle">
-            Cuéntanos de tu evento y te responderemos con una propuesta de menú y precio estimado.
-          </p>
-
-          <div class="card">
-            <!-- Si quieres, reemplaza "action" con tu Google Form URL -->
-            <form action="https://docs.google.com/forms/d/e/placeholder/formResponse" method="POST">
-              <div>
-                <label data-i18n="quote_name_label">Nombre completo</label>
-                <input type="text" name="name" required>
-              </div>
-              <div>
-                <label data-i18n="quote_email_label">Email</label>
-                <input type="email" name="email" required>
-              </div>
-              <div>
-                <label data-i18n="quote_phone_label">Teléfono</label>
-                <input type="tel" name="phone" placeholder="415-349-6404">
-              </div>
-              <div>
-                <label data-i18n="quote_date_label">Fecha del evento</label>
-                <input type="date" name="event_date">
-              </div>
-              <div>
-                <label data-i18n="quote_location_label">Ciudad / Lugar del evento</label>
-                <input type="text" name="location" placeholder="San Bruno, San Mateo, etc.">
-              </div>
-              <div>
-                <label data-i18n="quote_guests_label">Número aproximado de invitados</label>
-                <input type="number" name="guests" min="10">
-              </div>
-              <div>
-                <label data-i18n="quote_menu_label">Tipo de menú</label>
-                <select name="menu_type">
-                  <option value="colombian" data-i18n="quote_menu_opt1">Picadas & Costillas al barril</option>
-                  <option value="mexican" data-i18n="quote_menu_opt2">Queso birria & tacos</option>
-                  <option value="american" data-i18n="quote_menu_opt3">Buffet American/Italian</option>
-                  <option value="seafood" data-i18n="quote_menu_opt4">Seafood / Mariscos</option>
-                  <option value="other" data-i18n="quote_menu_opt5">Otro / mezcla</option>
-                </select>
-              </div>
-              <div>
-                <label data-i18n="quote_notes_label">Detalles del evento / restricciones</label>
-                <textarea name="notes" placeholder="Ej: sin picante, sin cerdo, buffet, servicio en mesa, etc."></textarea>
-              </div>
-              <button type="submit" class="btn-primary" data-i18n="quote_btn">
-                Enviar solicitud
-              </button>
-              <p style="font-size:0.78rem;color:var(--muted);margin-top:0.5rem;" data-i18n="quote_disclaimer">
-                Al enviar este formulario, aceptas que nos comuniquemos contigo por email o teléfono para confirmar detalles.
-              </p>
-            </form>
-          </div>
-        </div>
-
-        <div id="contact">
-          <h2 class="section-title" data-i18n="contact_title">Contacto directo</h2>
-          <p class="section-subtitle" data-i18n="contact_subtitle">
-            Si prefieres hablar directo, aquí están nuestros datos.
-          </p>
-
-          <div class="card contact-info">
-            <p><strong>WhatsApp / Tel:</strong> <a href="tel:+14153496404">(415) 349-6404</a></p>
-            <p><strong>Email:</strong> <a href="mailto:cateringjr04@gmail.com">cateringjr04@gmail.com</a></p>
-            <p><strong>Base:</strong> San Bruno, CA · Área de la Bahía</p>
-            <p data-i18n="contact_note">
-              Podemos desplazarnos dentro del Área de la Bahía y coordinar cocina en commissary kitchen según requiera el condado.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div>
-        © <span id="year"></span> Catering JR · <span data-i18n="footer_rights">Todos los derechos reservados.</span>
-      </div>
-      <div class="footer-links">
-        <a href="/sitemap.xml">Sitemap</a>
-        <a href="/robots.txt">Robots</a>
-      </div>
-    </div>
+    <p>Catering JR | Serving the Bay Area</p>
+    <p>Instagram: @catering_jr1</p>
   </footer>
-</div>
 
-<script>
-  // Año dinámico
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Textos para traducción simple EN/ES
-  const translations = {
-    es: {
-      nav_home: "Inicio",
-      nav_menu: "Menú",
-      nav_reviews: "Reseñas",
-      nav_quote: "Cotización",
-      nav_contact: "Contacto",
-      nav_media: "Media",
-      nav_cta: "Pedir cotización",
-      hero_eyebrow: "Catering privado · Food truck ready",
-      hero_title: "Picadas, costillas al barril y sabor latino para tu próximo evento.",
-      hero_subtitle: "Catering JR trae a tu mesa costillas de puerco al barril, picadas, tacos birria, arepas, empanadas y más, con servicio para bodas, eventos corporativos, quinceañeras y reuniones privadas en el Área de la Bahía.",
-      hero_tag1: "Bodas · Weddings",
-      hero_tag2: "Eventos corporativos",
-      hero_tag3: "Quinceañeras & Baby showers",
-      hero_btn_primary: "Solicitar cotización",
-      hero_btn_secondary: "Ver menús",
-      hero_note: "Servimos San Bruno, San Mateo County y Área de la Bahía. Opciones vegetarianas y sin picante disponibles.",
-      hero_badge: "Más de 7 años cocinando y aprendiendo para ti",
-      menu_title: "Nuestros menús",
-      menu_subtitle: "Menús flexibles para buffets, eventos familiares, empresas y bodas. Todos los menús se pueden personalizar y combinar.",
-      menu_col_label: "Fusión colombiana & latina",
-      menu_col_name: "Picadas y Costillas al Barril",
-      menu_col_items: "Picadas con papa, plátano, chorizo, costillas de puerco al barril, chimichurri casero, arepas y salsas de la casa.",
-      menu_col_serves: "Ideal para 20–80 personas",
-      menu_mex_label: "Mexican street style",
-      menu_mex_name: "Queso Birria & Tacos",
-      menu_mex_items: "Queso birria feast, tacos birria, arroz, frijoles, salsas hechas en casa, cebolla, cilantro y limones.",
-      menu_mex_serves: "Perfecto para fiestas y pop-ups",
-      menu_am_label: "American & Italian",
-      menu_am_name: "Buffet para Eventos",
-      menu_am_items: "Pasta, pollo al horno, ensaladas, sides calientes, panes, postres simples y opciones de seafood según temporada.",
-      menu_am_serves: "Desde 25 USD por persona",
-      menu_cta: "Pedir cotización",
-      menu_note: "¿Buscas un menú más específico (solo colombiano, solo mariscos, solo mexicano)? Cuéntanos en la cotización y lo creamos contigo.",
-      reviews_title: "Lo que dicen nuestros clientes",
-      reviews_subtitle: "Reseñas reales de eventos privados, pop-ups y catering en el Área de la Bahía.",
-      review_1_text: "Las costillas al barril fueron un éxito total en nuestra fiesta. Todo llegó caliente, bien presentado y con mucho sabor.",
-      review_1_author: "– Cliente privado, San Bruno",
-      review_2_text: "Organizamos un evento corporativo y Catering JR se encargó de todo el buffet. Profesional, puntual y la comida deliciosa.",
-      review_2_author: "– Evento corporativo, South San Francisco",
-      review_3_text: "Hicimos una quinceañera y todos hablaron de las picadas y las arepas. Muy recomendado.",
-      review_3_author: "– Familia, San Mateo",
-      media_title: "Galería & Media",
-      media_subtitle: "Un vistazo rápido a algunos de nuestros platos y montajes. Puedes ver más en nuestras redes sociales.",
-      quote_title: "Pide tu cotización",
-      quote_subtitle: "Cuéntanos de tu evento y te responderemos con una propuesta de menú y precio estimado.",
-      quote_name_label: "Nombre completo",
-      quote_email_label: "Email",
-      quote_phone_label: "Teléfono",
-      quote_date_label: "Fecha del evento",
-      quote_location_label: "Ciudad / Lugar del evento",
-      quote_guests_label: "Número aproximado de invitados",
-      quote_menu_label: "Tipo de menú",
-      quote_menu_opt1: "Picadas & Costillas al barril",
-      quote_menu_opt2: "Queso birria & tacos",
-      quote_menu_opt3: "Buffet American/Italian",
-      quote_menu_opt4: "Seafood / Mariscos",
-      quote_menu_opt5: "Otro / mezcla",
-      quote_notes_label: "Detalles del evento / restricciones",
-      quote_btn: "Enviar solicitud",
-      quote_disclaimer: "Al enviar este formulario, aceptas que nos comuniquemos contigo por email o teléfono para confirmar detalles.",
-      contact_title: "Contacto directo",
-      contact_subtitle: "Si prefieres hablar directo, aquí están nuestros datos.",
-      contact_note: "Podemos desplazarnos dentro del Área de la Bahía y coordinar cocina en commissary kitchen según requiera el condado.",
-      footer_rights: "Todos los derechos reservados."
-    },
-    en: {
-      nav_home: "Home",
-      nav_menu: "Menu",
-      nav_reviews: "Reviews",
-      nav_quote: "Quote",
-      nav_contact: "Contact",
-      nav_media: "Media",
-      nav_cta: "Ask for Quote",
-      hero_eyebrow: "Private catering · Food truck ready",
-      hero_title: "Ribs, picadas and Latin flavor for your next event.",
-      hero_subtitle: "Catering JR brings barrel-style pork ribs, picadas, birria tacos, arepas, empanadas and more to your wedding, corporate event, quinceañera or private gathering in the Bay Area.",
-      hero_tag1: "Weddings",
-      hero_tag2: "Corporate events",
-      hero_tag3: "Quinceañeras & baby showers",
-      hero_btn_primary: "Request a quote",
-      hero_btn_secondary: "View menus",
-      hero_note: "Serving San Bruno, San Mateo County and the Bay Area. Vegetarian and non-spicy options available.",
-      hero_badge: "Over 7 years cooking and learning for you",
-      menu_title: "Our menus",
-      menu_subtitle: "Flexible menus for buffets, family events, companies and weddings. All menus can be customized and mixed.",
-      menu_col_label: "Colombian & Latin fusion",
-      menu_col_name: "Picadas & Barrel Ribs",
-      menu_col_items: "Picadas with potato, plantain, chorizo, barrel-style pork ribs, house chimichurri, arepas and house salsas.",
-      menu_col_serves: "Ideal for 20–80 guests",
-      menu_mex_label: "Mexican street style",
-      menu_mex_name: "Queso Birria & Tacos",
-      menu_mex_items: "Queso birria feast, birria tacos, rice, beans, homemade salsas, onion, cilantro and limes.",
-      menu_mex_serves: "Perfect for parties and pop-ups",
-      menu_am_label: "American & Italian",
-      menu_am_name: "Event Buffet",
-      menu_am_items: "Pasta, baked chicken, salads, hot sides, breads, simple desserts and seasonal seafood options.",
-      menu_am_serves: "Starting at 25 USD per person",
-      menu_cta: "Request quote",
-      menu_note: "Looking for something very specific (only Colombian, only seafood, only Mexican)? Tell us in the quote form and we’ll build it with you.",
-      reviews_title: "What our clients say",
-      reviews_subtitle: "Real reviews from private events, pop-ups and catering in the Bay Area.",
-      review_1_text: "The barrel ribs were a total hit at our party. Everything arrived hot, well presented and full of flavor.",
-      review_1_author: "– Private client, San Bruno",
-      review_2_text: "We hosted a corporate event and Catering JR handled the entire buffet. Professional, on time and delicious food.",
-      review_2_author: "– Corporate event, South San Francisco",
-      review_3_text: "We had a quinceañera and everyone talked about the picadas and arepas. Highly recommended.",
-      review_3_author: "– Family, San Mateo",
-      media_title: "Gallery & Media",
-      media_subtitle: "A quick look at some of our dishes and setups. You can see more on our social media.",
-      quote_title: "Request your quote",
-      quote_subtitle: "Tell us about your event and we’ll reply with a menu proposal and estimated price.",
-      quote_name_label: "Full name",
-      quote_email_label: "Email",
-      quote_phone_label: "Phone",
-      quote_date_label: "Event date",
-      quote_location_label: "City / event location",
-      quote_guests_label: "Approximate guest count",
-      quote_menu_label: "Menu type",
-      quote_menu_opt1: "Picadas & barrel ribs",
-      quote_menu_opt2: "Queso birria & tacos",
-      quote_menu_opt3: "American/Italian buffet",
-      quote_menu_opt4: "Seafood",
-      quote_menu_opt5: "Other / mix",
-      quote_notes_label: "Event details / restrictions",
-      quote_btn: "Send request",
-      quote_disclaimer: "By submitting this form you agree that we may contact you by email or phone to confirm details.",
-      contact_title: "Direct contact",
-      contact_subtitle: "If you prefer to talk directly, here is our info.",
-      contact_note: "We can travel within the Bay Area and coordinate commissary kitchen use as required by the county.",
-      footer_rights: "All rights reserved."
-    }
-  };
-
-  function setLanguage(lang) {
-    document.querySelector('.page').setAttribute('data-lang', lang);
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (translations[lang][key]) {
-        el.textContent = translations[lang][key];
-      }
-    });
-    document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
-    });
-  }
-
-  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.getAttribute('data-lang-btn');
-      setLanguage(lang);
-    });
-  });
-
-  // Idioma inicial: ES
-  setLanguage('es');
-</script>
 </body>
 </html>
